@@ -1,0 +1,43 @@
+Q2A) Explain ThreadPool Executor in java with an Example.
+
+A2A) For Doing Every process or task if we are going to create a new thread it will create memory problem
+     and also reduces the performance.
+     to overcome this problem there is one concept called thread-pool Executor.
+     In thread-pool there is already fixed number of threads are there.
+     by using that threads , we can do our task easily.
+     without this we have to create n numbers of different thread for every task.
+     Here is one example of ThreadPool Executor
+     class Name implements Runnable{
+     String name;
+     Name(Sting name){
+     this.name=name;
+     }
+     public void run(){
+     System.out.println(name +"thread printing the name "+Thread.currentThread().getName());
+     try{
+     Thread.sleep(1000);
+     }catch(InturreptedException e){
+     e.getMessage();
+     }
+     System.out.println(name +"thread printed the name "+Thread.currentThread().getName()); }
+     }
+     class Main{
+     public static void main(String[] args){
+     Name[]  names={
+     new Name("Abbas"),
+     new Name("Jay"),
+     new Name("Parth"),
+    new Name("Ashish"),
+    new Name("Ali"),
+     new Name("Kumar"),
+     };
+     ExecutorService fire = Executors.newFixedThreadPool(2);
+     for(Name name:names){
+     service.submit(name);
+     }
+     service.shutdown();
+     }
+     }
+
+     In above example as you can see by using only one thread we had done multiple tasks.
+
